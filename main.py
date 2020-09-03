@@ -118,7 +118,7 @@ def get_address(user):
 
 
 def start(bot, update):
-	update.message.reply_text('Hello! I\'m a tipbot for the RPICoin crypto. ' +
+	update.message.reply_text('Hello! I\'m a tipbot for the MarteX crypto. ' +
 							  'Add me to a group and start tipping!')
 
 	add_to_chat(get_user(update.message.from_user.id), update.message.chat_id)
@@ -145,7 +145,7 @@ def tip(bot, update):
 					from_user = give_balance(from_user, -amount)
 					user = give_balance(user, amount)
 					bot.sendMessage(chat_id=update.message.chat_id,
-									text="%s tipped %s %f RPI" % (
+									text="%s tipped %s %f MXT" % (
 										from_user['username'],
 										args[0],
 										amount
@@ -201,7 +201,7 @@ def soak(bot, update):
 						give_balance(user, tip)
 
 					bot.sendMessage(chat_id=update.message.chat_id,
-									text="%s soaked %f RPI to %s!" % (
+									text="%s soaked %f MXT to %s!" % (
 										from_user['username'],
 										tip,
 										users_str
@@ -232,7 +232,7 @@ def balance(bot, update):
 		unconfirmed = "(+ %s unconfirmed)" % \
 					  get_unconfirmed(get_user(update.message.from_user.id))
 
-	update.message.reply_text("You have %s RPI (%f USD) %s" %
+	update.message.reply_text("You have %s MXT (%f USD) %s" %
 							  (bal, usd, unconfirmed))
 
 	add_to_chat(get_user(update.message.from_user.id), update.message.chat_id)
@@ -297,13 +297,13 @@ def withdraw(bot, update):
 				txid = rpc.sendtoaddress(args[0], amount-1)
 				give_balance(get_user(update.message.from_user.id), -amount)
 				update.message.reply_text(
-					"Withdrew %f RPI! TX: %s" %
-					(amount-1, "https://explorer.rpicoin.com/tx/" + txid))
+					"Withdrew %f MXT! TX: %s" %
+					(amount-1, "https://be.martexcoin.org/tx/" + txid))
 			else:
 				update.message.reply_text("Invalid address")
 		else:
 			update.message.reply_text("amount has to be more than 1, and " +
-									  "you need to have enough RPI Coins")
+									  "you need to have enough MXT Coins")
 	else:
 		update.message.reply_text("Usage: /withdraw <address> <amount>")
 

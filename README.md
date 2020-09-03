@@ -1,8 +1,8 @@
-# RPICoin Tip Bot for Telegram
+# MarteX Tip Bot for Telegram
 
-This is a telegram bot that allows you to tip RPI to people.
+This is a telegram bot that allows you to tip MXT to people.
 
-Username: [@RpiTipBot](https://t.me/RpiTipBot)
+Username: [@MxtTipBot](https://t.me/MxtTipBot)
 
 If you want to help development, clone the repo and setup your settings based off the `config-sample.json` file and rename it to `config.json`.
 
